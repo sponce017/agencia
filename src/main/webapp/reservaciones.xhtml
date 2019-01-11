@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Agencia de Viajes De El Salvador</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:dataTable var="res" value="#{reservacionesController.listaReservaciones}">
+            <p:column headerText="Correlativo">
+                <h:outputText value="#{res.idReservacion}" />
+            </p:column>
+
+            <p:column headerText="Descripcion Reserva">
+                <h:outputText value="#{res.descripcionReserva}" />
+            </p:column>
+
+            <p:column headerText="Categoria">
+                <h:outputText value="#{res.categoria}" />
+            </p:column>
+
+            <p:column headerText="Hotel">
+                <h:outputText value="#{res.idHotel}" />
+            </p:column>
+
+            <p:column headerText="Pasajero">
+                <h:outputText value="#{res.idPasajero}" />
+            </p:column>
+
+            <p:column headerText="Vuelo">
+                <h:outputText value="#{res.idVuelo}" />
+            </p:column>
+
+            <p:column headerText="Numero de Asiento">
+                <h:outputText value="#{res.numeroAsiento}" />
+            </p:column>
+
+            <p:column headerText="Update">
+                <h:commandButton action="#{reservacionesController.editarReservacionById()}" value="Update" styleClass="btn btn-primary">
+                    <f:param name="editReservacionId" value="#{res.idReservacion}" />
+                </h:commandButton>
+            </p:column>
+        </p:dataTable>
+        <center><h:commandButton action="crearReservacion" value="Crear Nueva Reservacion"/> </center>
+    </h:form>
+</h:body>
+</html>

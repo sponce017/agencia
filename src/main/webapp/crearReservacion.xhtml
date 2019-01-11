@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Agencia de Viajes De El Salvador</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Crear Reservacion de Viaje">
+            <h:panelGrid columns="4" cellpadding="4">
+                <h:outputText value="Id " />
+                <p:inputText value="#{reservacionesController.reservacion.idReservacion}" />
+                <h:outputText value="Descripcion Reserva " />
+                <p:inputText value="#{reservacionesController.reservacion.descripcionReserva}" />
+                <h:outputText value="Categoria " />
+                <p:inputText value="#{reservacionesController.reservacion.categoria}" />
+                <h:outputText value="Hotel " />
+                <p:inputText value="#{reservacionesController.reservacion.idHotel}" />
+                <h:outputText value="Pasajero " />
+                <p:inputText value="#{reservacionesController.reservacion.idPasajero}" />
+                <h:outputText value="Vuelo " />
+                <p:inputText value="#{reservacionesController.reservacion.idVuelo}" />
+                <h:outputText value="Numero de Asiento " />
+                <p:inputText value="#{reservacionesController.reservacion.numeroAsiento}" />
+                <p:commandButton value="Guardar" action="#{reservacionesController.crearReservacion}"/>
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
