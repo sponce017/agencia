@@ -1,45 +1,39 @@
 package com.agencia.modelos;
 
-import javax.persistence.*;
-import java.util.Objects;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "agencia",schema="public")
-public class Agencia {
-    private int idAgencia;
-    private String nombreAgencia;
+@Table(name = "agencia", schema = "public")
+public class Agencia implements Serializable {
 
-    @Id
-    @Column(name = "id")
-    public int getIdAgencia() {
-        return idAgencia;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public void setIdAgencia(int idAgencia) {
-        this.idAgencia = idAgencia;
-    }
+	@Id
+	@Column(name = "id_agencia")
+	private Long idAgencia;
 
-    @Basic
-    @Column(name = "nombre")
-    public String getNombreAgencia() {
-        return nombreAgencia;
-    }
+	@Column(name = "nombre")
+	private String nombreAgencia;
 
-    public void setNombreAgencia(String nombreAgencia) {
-        this.nombreAgencia = nombreAgencia;
-    }
+	public Long getIdAgencia() {
+		return idAgencia;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Agencia agencia = (Agencia) o;
-        return idAgencia == agencia.idAgencia &&
-                Objects.equals(nombreAgencia, agencia.nombreAgencia);
-    }
+	public void setIdAgencia(Long idAgencia) {
+		this.idAgencia = idAgencia;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idAgencia, nombreAgencia);
-    }
+	public String getNombreAgencia() {
+		return nombreAgencia;
+	}
+
+	public void setNombreAgencia(String nombreAgencia) {
+		this.nombreAgencia = nombreAgencia;
+	}
+
 }

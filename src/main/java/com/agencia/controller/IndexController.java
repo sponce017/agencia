@@ -20,7 +20,7 @@ public class IndexController {
     }
 
     public String reservaciones(){
-        AgenciaDAO.createAGencia(1,"Agencia de El Salvador");
+        //AgenciaDAO.createAGencia(1,"Agencia de El Salvador");
         return "reservaciones";
     }
 

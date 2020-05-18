@@ -7,124 +7,108 @@ import java.util.Objects;
 @Entity
 @Table(name = "reservacion",schema="public")
 public class Reservacion {
-    private int idReservacion;
-    private String categoria;
-    private Integer numeroAsiento;
-    private Date horaGestion;
-    private String descripcionReserva;
-    private Integer idPasajero;
-    private Integer idVuelo;
-    private Integer idEmpleadoGestion;
-    private Integer idHotel;
+   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_reservacion")
+	private Long idReservacion;
+    	
+	private String categoria;
+    
+	@Column(name="numero_asiento")
+	private int numeroAsiento;
+    
+	@Column(name="hora_gestion")
+	private Date horaGestion;
+    
+	@Column(name="descripcion_reserva")
+	private String descripcionReserva;
+    
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_pasajero")
+	private Pasajero pasajero;
+    
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_vuelo")
+	private Vuelo vuelo;
+    
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_empleado_gestion")
+	private Empleado empleado;
+    
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_hotel")
+	private Hotel hotel;
 
-    @Id
-    @Column(name = "id")
-    public int getIdReservacion() {
-        return idReservacion;
-    }
+	public Long getIdReservacion() {
+		return idReservacion;
+	}
 
-    public void setIdReservacion(int idReservacion) {
-        this.idReservacion = idReservacion;
-    }
+	public void setIdReservacion(Long idReservacion) {
+		this.idReservacion = idReservacion;
+	}
 
-    @Basic
-    @Column(name = "categoria")
-    public String getCategoria() {
-        return categoria;
-    }
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
-    @Basic
-    @Column(name = "numeroasiento")
-    public Integer getNumeroAsiento() {
-        return numeroAsiento;
-    }
+	public int getNumeroAsiento() {
+		return numeroAsiento;
+	}
 
-    public void setNumeroAsiento(Integer numeroAsiento) {
-        this.numeroAsiento = numeroAsiento;
-    }
+	public void setNumeroAsiento(int numeroAsiento) {
+		this.numeroAsiento = numeroAsiento;
+	}
 
-    @Basic
-    @Column(name = "horagestion")
-    public Date getHoraGestion() {
-        return horaGestion;
-    }
+	public Date getHoraGestion() {
+		return horaGestion;
+	}
 
-    public void setHoraGestion(Date horaGestion) {
-        this.horaGestion = horaGestion;
-    }
+	public void setHoraGestion(Date horaGestion) {
+		this.horaGestion = horaGestion;
+	}
 
-    @Basic
-    @Column(name = "descripcionreserva")
-    public String getDescripcionReserva() {
-        return descripcionReserva;
-    }
+	public String getDescripcionReserva() {
+		return descripcionReserva;
+	}
 
-    public void setDescripcionReserva(String descripcionReserva) {
-        this.descripcionReserva = descripcionReserva;
-    }
+	public void setDescripcionReserva(String descripcionReserva) {
+		this.descripcionReserva = descripcionReserva;
+	}
 
-    @Basic
-    @Column(name = "idpasajero")
-    public Integer getIdPasajero() {
-        return idPasajero;
-    }
+	public Pasajero getPasajero() {
+		return pasajero;
+	}
 
-    public void setIdPasajero(Integer idPasajero) {
-        this.idPasajero = idPasajero;
-    }
+	public void setPasajero(Pasajero pasajero) {
+		this.pasajero = pasajero;
+	}
 
-    @Basic
-    @Column(name = "idvuelo")
-    public Integer getIdVuelo() {
-        return idVuelo;
-    }
+	public Vuelo getVuelo() {
+		return vuelo;
+	}
 
-    public void setIdVuelo(Integer idVuelo) {
-        this.idVuelo = idVuelo;
-    }
+	public void setVuelo(Vuelo vuelo) {
+		this.vuelo = vuelo;
+	}
 
-    @Basic
-    @Column(name = "idempleadogestion")
-    public Integer getIdEmpleadoGestion() {
-        return idEmpleadoGestion;
-    }
+	public Empleado getEmpleado() {
+		return empleado;
+	}
 
-    public void setIdEmpleadoGestion(Integer idEmpleadoGestion) {
-        this.idEmpleadoGestion = idEmpleadoGestion;
-    }
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
 
-    @Basic
-    @Column(name = "idhotel")
-    public Integer getIdHotel() {
-        return idHotel;
-    }
+	public Hotel getHotel() {
+		return hotel;
+	}
 
-    public void setIdHotel(Integer idHotel) {
-        this.idHotel = idHotel;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Reservacion that = (Reservacion) o;
-        return idReservacion == that.idReservacion &&
-                Objects.equals(categoria, that.categoria) &&
-                Objects.equals(numeroAsiento, that.numeroAsiento) &&
-                Objects.equals(horaGestion, that.horaGestion) &&
-                Objects.equals(descripcionReserva, that.descripcionReserva) &&
-                Objects.equals(idPasajero, that.idPasajero) &&
-                Objects.equals(idVuelo, that.idVuelo) &&
-                Objects.equals(idEmpleadoGestion, that.idEmpleadoGestion) &&
-                Objects.equals(idHotel, that.idHotel);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idReservacion, categoria, numeroAsiento, horaGestion, descripcionReserva, idPasajero, idVuelo, idEmpleadoGestion, idHotel);
-    }
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
 }
