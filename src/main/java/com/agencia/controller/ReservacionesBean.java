@@ -3,7 +3,6 @@ package com.agencia.controller;
 import com.agencia.dao.AgenciaDAO;
 import com.agencia.dao.ReservacionDAO;
 import com.agencia.modelos.Reservacion;
-import com.agencia.modelos.Reservaciones;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +14,7 @@ import java.util.List;
 
 @ManagedBean
 @RequestScoped
-public class ReservacionesController implements Serializable {
+public class ReservacionesBean{
 
     private List<Reservacion> listaReservaciones;
     ReservacionDAO rsd;

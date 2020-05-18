@@ -14,13 +14,16 @@ public class IndexController {
     public void init(){
 
     }
+    
+    public String agregarPasajeroForm() {
+		return "agregarPasajero";
+	}
 
     public String cliente (){
         return "clientes";
     }
 
     public String reservaciones(){
-        //AgenciaDAO.createAGencia(1,"Agencia de El Salvador");
         return "reservaciones";
     }
 

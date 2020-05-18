@@ -1,7 +1,7 @@
 package com.agencia.modelos;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,8 +19,8 @@ public class Pasajero implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @Column(name = "id_pasajero")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pasajero")	
 	private Long idPasajero;
     	
 	private String nombre;
