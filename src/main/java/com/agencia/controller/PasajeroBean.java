@@ -1,14 +1,12 @@
 package com.agencia.controller;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
 
 import com.agencia.dao.PasajeroDAO;
 import com.agencia.modelos.Pasajero;
 
-@ManagedBean
-@RequestScoped
+@Named
 public class PasajeroBean {
 	
 	PasajeroDAO pasajeroDAO;

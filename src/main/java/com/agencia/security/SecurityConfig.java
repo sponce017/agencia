@@ -17,7 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		//login
 		http.formLogin().loginPage("/login.xhtml").permitAll()
-			.failureUrl("/login.xhtml?error=true");
+			.failureUrl("/login.xhtml?error=true")
+			.defaultSuccessUrl("/index.xhtml", true);
 		
 		//logout
 		http.logout().logoutSuccessUrl("/login.xhtml");

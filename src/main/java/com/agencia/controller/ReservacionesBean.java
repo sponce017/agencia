@@ -1,19 +1,15 @@
 package com.agencia.controller;
 
-import com.agencia.dao.AgenciaDAO;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
 import com.agencia.dao.ReservacionDAO;
 import com.agencia.modelos.Reservacion;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-@ManagedBean
-@RequestScoped
+@Named
 public class ReservacionesBean{
 
     private List<Reservacion> listaReservaciones;
@@ -25,7 +21,7 @@ public class ReservacionesBean{
     @PostConstruct
     public void init() {
         this.reservacion = new Reservacion();
-        this.listaReservaciones = rsd.findAll();
+        //this.listaReservaciones = rsd.findAll();
     }
 
     public String crearReservacion(){

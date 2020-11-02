@@ -1,12 +1,10 @@
 package com.agencia.controller;
 
 
-import com.agencia.dao.AgenciaDAO;
-
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 public class IndexController {
 
 
